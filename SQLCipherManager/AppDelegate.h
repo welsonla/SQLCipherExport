@@ -17,7 +17,13 @@
 
 - (IBAction)convertDB:(id)sender;
 
+//showTheAlert
 void showAlert(NSString *title,NSString *message);
 
+
+/**
+ * If export fail,delete the temp database
+ */
 bool deleteDatabase();
+
 @end

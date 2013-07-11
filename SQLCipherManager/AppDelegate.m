@@ -105,6 +105,9 @@ void *runCommand(NSString *path,NSString *keyword)
                     showAlert(@"export error", @"export fail please check your key or your database");
                     deleteDatabase();
                 }
+            }else{
+                showAlert(@"export error", @"export fail please check your key or your database");
+                deleteDatabase();
             }
             NSLog (@"End database copying at Time: %@",[NSDate date]);
             sqlite3_close(convert_DB);
@@ -116,9 +119,6 @@ void *runCommand(NSString *path,NSString *keyword)
             showAlert(@"export error", @"export fail please check your key or your database");
             sqlite3_close(convert_DB);
         }
-        
-//    });
-    /////
 }
 - (IBAction)convertDB:(id)sender {
     if (DBPathText.stringValue.length==0) {
@@ -148,11 +148,7 @@ void *runCommand(NSString *path,NSString *keyword)
 #pragma mark -
 #pragma mark - Common function to call NSAlert
 void showAlert(NSString *title,NSString *message){
-    [[NSAlert alertWithMessageText:title
-                     defaultButton:@"OK"
-                   alternateButton:nil
-                       otherButton:nil
-         informativeTextWithFormat:@"%@",message] runModal];
+    [[NSAlert alertWithMessageText:title defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"%@",message] runModal];
     
 
 }
@@ -162,8 +158,8 @@ void showAlert(NSString *title,NSString *message){
 #pragma mark - If Export fail delete the failed database
 bool deleteDatabase(){
     NSFileManager *fmg = [NSFileManager defaultManager];
-    NSString *failedDB = [[NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES) objectAtIndex:0]
-                          stringByAppendingPathComponent:@"developer.db"];
+    NSString *failedDB = [[NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES) 
+																							objectAtIndex:0] stringByAppendingPathComponent:@"developer.db"];
     
     if ([fmg removeItemAtPath:failedDB error:nil]) {
         return true;
