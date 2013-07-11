@@ -12,4 +12,9 @@
 
 @property (assign) IBOutlet NSWindow *window;
 
+@property (assign) IBOutlet NSTextField *DBPathText;
+@property (assign) IBOutlet NSTextField *DBKey;
+
+- (IBAction)convertDB:(id)sender;
+
 @end

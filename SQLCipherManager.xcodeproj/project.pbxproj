@@ -17,6 +17,9 @@
 		0E7551C8178D321B004DF8FC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E7551A8178D3219004DF8FC /* Cocoa.framework */; };
 		0E7551D0178D321B004DF8FC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0E7551CE178D321B004DF8FC /* InfoPlist.strings */; };
 		0E7551D3178D321B004DF8FC /* SQLCipherManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E7551D2178D321B004DF8FC /* SQLCipherManagerTests.m */; };
+		0EB01EC8178E942C00752D12 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB01EBC178E940100752D12 /* libcrypto.a */; };
+		0EB01EC9178E942C00752D12 /* libsqlcipher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB01EC3178E941300752D12 /* libsqlcipher.a */; };
+		0EB01ECD178E9AC400752D12 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB01ECC178E9AC300752D12 /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +29,34 @@
 			proxyType = 1;
 			remoteGlobalIDString = 0E7551A4178D3219004DF8FC;
 			remoteInfo = SQLCipherManager;
+		};
+		0EB01EBB178E940100752D12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0EB01EB7178E940000752D12 /* openssl.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9069D28C0FCE659A0042E34C;
+			remoteInfo = crypto;
+		};
+		0EB01EC2178E941300752D12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0EB01EBD178E941200752D12 /* sqlcipher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC046055464E500DB518D;
+			remoteInfo = sqlcipher;
+		};
+		0EB01EC4178E942500752D12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0EB01EBD178E941200752D12 /* sqlcipher.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC045055464E500DB518D;
+			remoteInfo = sqlcipher;
+		};
+		0EB01EC6178E942500752D12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0EB01EB7178E940000752D12 /* openssl.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9069D28B0FCE659A0042E34C;
+			remoteInfo = crypto;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -49,6 +80,9 @@
 		0E7551CF178D321B004DF8FC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0E7551D1178D321B004DF8FC /* SQLCipherManagerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQLCipherManagerTests.h; sourceTree = "<group>"; };
 		0E7551D2178D321B004DF8FC /* SQLCipherManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQLCipherManagerTests.m; sourceTree = "<group>"; };
+		0EB01EB7178E940000752D12 /* openssl.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openssl.xcodeproj; path = "../../SQLCipherApp/openssl-xcode/openssl.xcodeproj"; sourceTree = "<group>"; };
+		0EB01EBD178E941200752D12 /* sqlcipher.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = sqlcipher.xcodeproj; path = ../../SQLCipherApp/sqlcipher/sqlcipher.xcodeproj; sourceTree = "<group>"; };
+		0EB01ECC178E9AC300752D12 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +90,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EB01ECD178E9AC400752D12 /* libsqlite3.dylib in Frameworks */,
+				0EB01EC8178E942C00752D12 /* libcrypto.a in Frameworks */,
+				0EB01EC9178E942C00752D12 /* libsqlcipher.a in Frameworks */,
 				0E7551A9178D321A004DF8FC /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -75,6 +112,9 @@
 		0E75519C178D3219004DF8FC = {
 			isa = PBXGroup;
 			children = (
+				0EB01ECC178E9AC300752D12 /* libsqlite3.dylib */,
+				0EB01EBD178E941200752D12 /* sqlcipher.xcodeproj */,
+				0EB01EB7178E940000752D12 /* openssl.xcodeproj */,
 				0E7551AE178D321A004DF8FC /* SQLCipherManager */,
 				0E7551CB178D321B004DF8FC /* SQLCipherManagerTests */,
 				0E7551A7178D3219004DF8FC /* Frameworks */,
@@ -153,6 +193,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0EB01EB8178E940000752D12 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0EB01EBC178E940100752D12 /* libcrypto.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0EB01EBE178E941200752D12 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0EB01EC3178E941300752D12 /* libsqlcipher.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -167,6 +223,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				0EB01EC5178E942500752D12 /* PBXTargetDependency */,
+				0EB01EC7178E942500752D12 /* PBXTargetDependency */,
 			);
 			name = SQLCipherManager;
 			productName = SQLCipherManager;
@@ -211,6 +269,16 @@
 			mainGroup = 0E75519C178D3219004DF8FC;
 			productRefGroup = 0E7551A6178D3219004DF8FC /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0EB01EB8178E940000752D12 /* Products */;
+					ProjectRef = 0EB01EB7178E940000752D12 /* openssl.xcodeproj */;
+				},
+				{
+					ProductGroup = 0EB01EBE178E941200752D12 /* Products */;
+					ProjectRef = 0EB01EBD178E941200752D12 /* sqlcipher.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				0E7551A4178D3219004DF8FC /* SQLCipherManager */,
@@ -218,6 +286,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		0EB01EBC178E940100752D12 /* libcrypto.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libcrypto.a;
+			remoteRef = 0EB01EBB178E940100752D12 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0EB01EC3178E941300752D12 /* libsqlcipher.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libsqlcipher.a;
+			remoteRef = 0EB01EC2178E941300752D12 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0E7551A3178D3219004DF8FC /* Resources */ = {
@@ -281,6 +366,16 @@
 			isa = PBXTargetDependency;
 			target = 0E7551A4178D3219004DF8FC /* SQLCipherManager */;
 			targetProxy = 0E7551C9178D321B004DF8FC /* PBXContainerItemProxy */;
+		};
+		0EB01EC5178E942500752D12 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = sqlcipher;
+			targetProxy = 0EB01EC4178E942500752D12 /* PBXContainerItemProxy */;
+		};
+		0EB01EC7178E942500752D12 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = crypto;
+			targetProxy = 0EB01EC6178E942500752D12 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -383,7 +478,9 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SQLCipherManager/SQLCipherManager-Prefix.pch";
+				HEADER_SEARCH_PATHS = sqlcipher;
 				INFOPLIST_FILE = "SQLCipherManager/SQLCipherManager-Info.plist";
+				OTHER_CFLAGS = "-DSQLITE_HAS_CODEC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -395,7 +492,9 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SQLCipherManager/SQLCipherManager-Prefix.pch";
+				HEADER_SEARCH_PATHS = sqlcipher;
 				INFOPLIST_FILE = "SQLCipherManager/SQLCipherManager-Info.plist";
+				OTHER_CFLAGS = "-DSQLITE_HAS_CODEC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -450,6 +549,7 @@
 				0E7551D8178D321B004DF8FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0E7551D9178D321B004DF8FC /* Build configuration list for PBXNativeTarget "SQLCipherManagerTests" */ = {
 			isa = XCConfigurationList;
@@ -458,6 +558,7 @@
 				0E7551DB178D321B004DF8FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
