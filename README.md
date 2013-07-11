@@ -1,5 +1,5 @@
 ##configuration
-(http://sqlcipher.net/ios-tutorial/)[http://sqlcipher.net/ios-tutorial/]
+[http://sqlcipher.net/ios-tutorial](http://sqlcipher.net/ios-tutorial/)
 
 
 
