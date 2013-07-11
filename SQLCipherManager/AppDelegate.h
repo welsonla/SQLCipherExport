@@ -17,4 +17,7 @@
 
 - (IBAction)convertDB:(id)sender;
 
+void showAlert(NSString *title,NSString *message);
+
+bool deleteDatabase();
 @end

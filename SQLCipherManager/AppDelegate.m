@@ -24,7 +24,7 @@
 
 }
 
-NSString *runCommand(NSString *path,NSString *keyword)
+void *runCommand(NSString *path,NSString *keyword)
 {
 //    NSTask *task;
 //    task = [[NSTask alloc] init];
@@ -53,8 +53,6 @@ NSString *runCommand(NSString *path,NSString *keyword)
 //    return output;
     
     
-    /////
-//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
         //使用原生的sqlite
         NSString *origin_DB_Path = path;
         
@@ -64,7 +62,10 @@ NSString *runCommand(NSString *path,NSString *keyword)
                                  stringByAppendingPathComponent:@"developer.db"];;
     
   
-    
+        if ([[NSFileManager defaultManager] fileExistsAtPath:attachPath]) {
+            showAlert(@"Notice", @"a database named 'developer.db' is already on the Desktop");
+            return false;
+        }
     
         if (sqlite3_open([origin_DB_Path UTF8String], &convert_DB) == SQLITE_OK) {
             
@@ -73,10 +74,11 @@ NSString *runCommand(NSString *path,NSString *keyword)
             sqlite3_key(convert_DB, dbkey, strlen(dbkey));
             
             NSLog(@"Database Opened at Time :%@",[NSDate date]);
+           
+            
             /**
              * 1.收缩数据库
              */
-
             sqlite3_exec(convert_DB, [@"vacuum;" UTF8String], NULL, NULL, NULL);
             
             /**
@@ -94,62 +96,38 @@ NSString *runCommand(NSString *path,NSString *keyword)
                      */
                     if(sqlite3_exec(convert_DB, "DETACH DATABASE encrypted;", NULL, NULL, NULL) == SQLITE_OK){
                         NSLog(@"分离成功");
+                        showAlert(@"export success", @"the database was success export on ~/Desktop/developer.db");
                     }
-                    
-                    [[NSAlert alertWithMessageText:@"export success"
-                                     defaultButton:@"OK"
-                                   alternateButton:nil
-                                       otherButton:nil
-                         informativeTextWithFormat:@"the database was success export on ~/Desktop/developer.db"]
-                     runModal];
-                    
+
                 }else{
                     
                     NSLog(@"导出失败");
-                    [[NSAlert alertWithMessageText:@"export error"
-                                     defaultButton:@"I know"
-                                   alternateButton:nil
-                                       otherButton:nil
-                         informativeTextWithFormat:@"export fail please check your key or your database"] runModal];
-                    
-                    
+                    showAlert(@"export error", @"export fail please check your key or your database");
+                    deleteDatabase();
                 }
             }
-            
             NSLog (@"End database copying at Time: %@",[NSDate date]);
             sqlite3_close(convert_DB);
+
             
             
         }
         else {
-            [[NSAlert alertWithMessageText:@"export error"
-                             defaultButton:@"I know"
-                           alternateButton:nil
-                               otherButton:nil
-                 informativeTextWithFormat:@"export fail please check your key or your database"] runModal];
+            showAlert(@"export error", @"export fail please check your key or your database");
             sqlite3_close(convert_DB);
         }
         
 //    });
     /////
-    
-    return nil;
 }
 - (IBAction)convertDB:(id)sender {
     if (DBPathText.stringValue.length==0) {
-        [[NSAlert alertWithMessageText:@"could not found the database"
-                         defaultButton:@"OK,I know"
-                       alternateButton:nil
-                           otherButton:nil
-             informativeTextWithFormat:@"Drap your Sqlite to the first input"] runModal];
+        showAlert(@"could not found the database", @"Drap your Sqlite to the first input");
         return ;
     }
     
     if (DBKey.stringValue.length==0) {
-        [NSAlert alertWithMessageText:@"the key was invalid" defaultButton:@"OK,I know"
-                      alternateButton:nil
-                          otherButton:nil
-            informativeTextWithFormat:@"Please check your database key!"];
+        showAlert(@"the key was invalid", @"Please check your database key!");
         return;
     }
     
@@ -159,17 +137,39 @@ NSString *runCommand(NSString *path,NSString *keyword)
     
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:dbpath]) {
-        [[NSAlert alertWithMessageText:@"notice"
-                         defaultButton:@"OK"
-                       alternateButton:nil
-                           otherButton:nil
-             informativeTextWithFormat:@"I could not found the sqlite at this path"]
-         runModal];
-        
+        showAlert(@"notice", @"I could not found the sqlite at this path");
         return;
     }else{
         runCommand(dbpath, key);
     }
   
 }
+
+#pragma mark -
+#pragma mark - Common function to call NSAlert
+void showAlert(NSString *title,NSString *message){
+    [[NSAlert alertWithMessageText:title
+                     defaultButton:@"OK"
+                   alternateButton:nil
+                       otherButton:nil
+         informativeTextWithFormat:@"%@",message] runModal];
+    
+
+}
+
+
+#pragma mark -
+#pragma mark - If Export fail delete the failed database
+bool deleteDatabase(){
+    NSFileManager *fmg = [NSFileManager defaultManager];
+    NSString *failedDB = [[NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES) objectAtIndex:0]
+                          stringByAppendingPathComponent:@"developer.db"];
+    
+    if ([fmg removeItemAtPath:failedDB error:nil]) {
+        return true;
+    }else{
+        return false;
+    }
+}
+
 @end
