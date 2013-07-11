@@ -63,16 +63,7 @@ NSString *runCommand(NSString *path,NSString *keyword)
         NSString *attachPath = [[NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES) objectAtIndex:0]
                                  stringByAppendingPathComponent:@"developer.db"];;
     
-        if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
-            [[NSAlert alertWithMessageText:@"notice"
-                             defaultButton:@"OK"
-                           alternateButton:nil
-                               otherButton:nil
-                 informativeTextWithFormat:@"I could not found the sqlite at this path"]
-             runModal];
-            
-            return nil;
-        }
+  
     
     
         if (sqlite3_open([origin_DB_Path UTF8String], &convert_DB) == SQLITE_OK) {
@@ -165,6 +156,20 @@ NSString *runCommand(NSString *path,NSString *keyword)
     NSString *dbpath = DBPathText.stringValue;
     NSString *key = DBKey.stringValue;
     
-    runCommand(dbpath, key);
+    
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:dbpath]) {
+        [[NSAlert alertWithMessageText:@"notice"
+                         defaultButton:@"OK"
+                       alternateButton:nil
+                           otherButton:nil
+             informativeTextWithFormat:@"I could not found the sqlite at this path"]
+         runModal];
+        
+        return;
+    }else{
+        runCommand(dbpath, key);
+    }
+  
 }
 @end
