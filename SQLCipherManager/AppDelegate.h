@@ -14,6 +14,7 @@
 
 @property (assign) IBOutlet NSTextField *DBPathText;
 @property (assign) IBOutlet NSTextField *DBKey;
+@property (assign) IBOutlet NSMatrix *actionRadio;
 
 - (IBAction)convertDB:(id)sender;
 
@@ -25,5 +26,7 @@ void showAlert(NSString *title,NSString *message);
  * If export fail,delete the temp database
  */
 bool deleteDatabase();
+
+
 
 @end
