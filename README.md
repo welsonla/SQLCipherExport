@@ -1,3 +1,6 @@
+![icon](http://ww1.sinaimg.cn/large/6e8de9dbjw1e6qvw7hjmgj2074074mx5.jpg)
+
+
 ##configuration
 [http://sqlcipher.net/ios-tutorial](http://sqlcipher.net/ios-tutorial/)
 
@@ -7,7 +10,7 @@
 1. Drag your database to the first input
 2. Input your key
 
-![scrennshot](http://ww2.sinaimg.cn/large/6e8de9dbjw1e6iy54niu6j20b50bsgm1.jpg)
+![scrennshot](http://ww2.sinaimg.cn/large/6e8de9dbjw1e6qvxrsmc9j20b60btjrq.jpg)
 
 #####When export success
 You can find a sqlite database named 'developer.db' on your Desktop
