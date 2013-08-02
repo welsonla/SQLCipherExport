@@ -8,13 +8,18 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate>{
+    
+}
 
 @property (assign) IBOutlet NSWindow *window;
 
 @property (assign) IBOutlet NSTextField *DBPathText;
 @property (assign) IBOutlet NSTextField *DBKey;
 @property (assign) IBOutlet NSMatrix *actionRadio;
+@property (nonatomic,strong) NSString *noticeMessage;
+@property (assign) __block IBOutlet NSTextField *noticeText;
+
 
 - (IBAction)convertDB:(id)sender;
 
@@ -27,6 +32,10 @@ void showAlert(NSString *title,NSString *message);
  */
 bool deleteDatabase();
 
+//解密数据库
+- (void)runDecodeWithDB:(NSString *)path keyword:(NSString *)key;
 
+//加密数据库
+- (void)runEncodeWithDB:(NSString *)path keyword:(NSString *)key;
 
 @end

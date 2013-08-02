@@ -8,26 +8,39 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SQLCipherManager/AppDelegate.m"
-         timestampString = "395805668.591757"
+         timestampString = "397128095.797319"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "128"
-         endingLineNumber = "128"
-         landmarkName = "runEncode()"
-         landmarkType = "7">
+         startingLineNumber = "193"
+         endingLineNumber = "193"
+         landmarkName = "-convertDB:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SQLCipherManager/AppDelegate.m"
-         timestampString = "395805668.591757"
+         timestampString = "397128095.797319"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "162"
-         endingLineNumber = "162"
-         landmarkName = "@implementation AppDelegate"
-         landmarkType = "3">
+         startingLineNumber = "97"
+         endingLineNumber = "97"
+         landmarkName = "-runEncodeWithDB:keyword:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SQLCipherManager/AppDelegate.m"
+         timestampString = "397126567.706675"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "31"
+         endingLineNumber = "31"
+         landmarkName = "-runDecodeWithDB:keyword:"
+         landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
