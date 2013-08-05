@@ -19,6 +19,7 @@ You can find a sqlite database named 'developer.db' on your Desktop
 ~/Desktop/developer.db
 ```
 
+![converting](http://ww4.sinaimg.cn/large/6e8de9dbjw1e7bsk0lxisj20b30bkjrp.jpg)
 
 ![success](http://ww4.sinaimg.cn/large/6e8de9dbjw1e6iyseo25vj20cd0caq3e.jpg)
 
