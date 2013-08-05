@@ -16,6 +16,7 @@
 @synthesize actionRadio;
 @synthesize noticeMessage;
 @synthesize noticeText;
+@synthesize progressIndicator;
 
 - (void)dealloc
 {
@@ -27,74 +28,102 @@
 
 }
 
-
+//进行数据库加密
 - (void)runEncodeWithDB:(NSString *)path keyword:(NSString *)key{
-    //使用原生的sqlite
-    NSString *origin_DB_Path = path;
-    
-    sqlite3 *convert_DB;
-    
-    NSString *attachPath = [[NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES) objectAtIndex:0]
-                            stringByAppendingPathComponent:@"encrypt.db"];;
     
     
-    if ([[NSFileManager defaultManager] fileExistsAtPath:attachPath]) {
-        showAlert(@"Notice", @"a database named 'developer.db' is already on the Desktop");
-        return;
-    }
-    
-    if (sqlite3_open([origin_DB_Path UTF8String], &convert_DB) == SQLITE_OK) {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        //使用原生的sqlite
+        NSString *origin_DB_Path = path;
         
-        NSLog(@"Database Opened at Time :%@",[NSDate date]);
+        sqlite3 *convert_DB;
         
-        /**
-         * 1.收缩数据库
-         */
-        sqlite3_exec(convert_DB, [@"vacuum;" UTF8String], NULL, NULL, NULL);
+        NSString *attachPath = [[NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES) objectAtIndex:0]
+                                stringByAppendingPathComponent:@"encrypt.db"];;
         
-        /**
-         * 2.生成一个新的加密库
-         */
-        NSString *sql = [NSString stringWithFormat:@"ATTACH DATABASE '%@' AS encrypted KEY '%@';",attachPath,key];
         
-        if(sqlite3_exec(convert_DB, [sql UTF8String] , NULL, NULL, NULL)==SQLITE_OK){
+        if ([[NSFileManager defaultManager] fileExistsAtPath:attachPath]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                showAlert(@"Notice", @"a database named 'developer.db' is already on the Desktop");
+            });
             
-            if(sqlite3_exec(convert_DB, "SELECT sqlcipher_export('encrypted');", NULL, NULL, NULL)== SQLITE_OK){
+            return;
+        }
+        
+        if (sqlite3_open([origin_DB_Path UTF8String], &convert_DB) == SQLITE_OK) {
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.noticeText setStringValue:@"数据库打开成功"];
+            });
+            NSLog(@"Database Opened at Time :%@",[NSDate date]);
+            
+            /**
+             * 1.收缩数据库
+             */
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.noticeText setStringValue:@"正在进行数据库压缩"];
+            });
+            sqlite3_exec(convert_DB, [@"vacuum;" UTF8String], NULL, NULL, NULL);
+            
+            /**
+             * 2.生成一个新的加密库
+             */
+            NSString *sql = [NSString stringWithFormat:@"ATTACH DATABASE '%@' AS encrypted KEY '%@';",attachPath,key];
+            
+            if(sqlite3_exec(convert_DB, [sql UTF8String] , NULL, NULL, NULL)==SQLITE_OK){
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.noticeText setStringValue:@"正在进行加密..."];
+                });
                 
-                NSLog(@"导出成功");
-                self.noticeMessage = @"导出成功";
-                /**
-                 * 4.分离数据库
-                 */
-                if(sqlite3_exec(convert_DB, "DETACH DATABASE encrypted;", NULL, NULL, NULL) == SQLITE_OK){
-                    NSLog(@"分离成功");
-                    [self.noticeText setStringValue:@"分离成功"];
-                    showAlert(@"Encrypt success", @"the database was success export on ~/Desktop/encrypt.db");
+                if(sqlite3_exec(convert_DB, "SELECT sqlcipher_export('encrypted');", NULL, NULL, NULL)== SQLITE_OK){
+                    
+                    NSLog(@"导出成功");
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.noticeText setStringValue:@"转换成功，正在进行分离"];
+                    });
+                    /**
+                     * 4.分离数据库
+                     */
+                    if(sqlite3_exec(convert_DB, "DETACH DATABASE encrypted;", NULL, NULL, NULL) == SQLITE_OK){
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            NSLog(@"分离成功");
+                            [self.noticeText setStringValue:@"加密成功 :)"];
+                            showAlert(@"Encrypt success", @"the database was success export on ~/Desktop/encrypt.db");
+                        });
+                    }
+                    
+                }else{
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        NSLog(@"导出失败");
+                        [self.noticeText setStringValue:@"导出失败 :("];
+                        showAlert(@"Encrypt error", @"Encrypt fail please check your key or your database");
+                        deleteDatabase();
+                    });
                 }
-                
             }else{
-                
-                NSLog(@"导出失败");
-                self.noticeMessage = @"导出失败";
-                showAlert(@"Encrypt error", @"Encrypt fail please check your key or your database");
+                //数据库或者key不正确
+                showAlert(@"export error", @"export fail please check your key or your database");
                 deleteDatabase();
             }
-        }else{
-            showAlert(@"export error", @"export fail please check your key or your database");
-            deleteDatabase();
+            NSLog (@"End database copying at Time: %@",[NSDate date]);
         }
-        NSLog (@"End database copying at Time: %@",[NSDate date]);
-        sqlite3_close(convert_DB);
-    }
-    else {
-        showAlert(@"export error", @"export fail please check your key or your database");
-        sqlite3_close(convert_DB);
-    }
+        else {
+            showAlert(@"export error", @"export fail please check your key or your database");
+        }
+        
+        
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self setUIStatus:YES];
+        });
 
+        sqlite3_close(convert_DB);
+    });
+   
 }
 
 
-
+//进行数据库解密
 - (void)runDecodeWithDB:(NSString *)path keyword:(NSString *)key{
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -131,7 +160,7 @@
                 [self.noticeText setStringValue:@"正在进行优化"];
             });
             /**
-             * 2.生成一个新的加密库
+             * 2.生成一个新的非加密库
              */
             NSString *sql = [NSString stringWithFormat:@"ATTACH DATABASE '%@' AS encrypted KEY '';",attachPath];
             
@@ -150,39 +179,43 @@
                         NSLog(@"分离成功");
                         
                         dispatch_async(dispatch_get_main_queue(), ^{
-                             [self.noticeText setStringValue:@"加密成功"];
+                             [self.noticeText setStringValue:@"解密成功 :)"];
+                             [self.progressIndicator setHidden:YES];
                              showAlert(@"export success", @"the database was success export on ~/Desktop/developer.db");
                         });
                        
                     }
                     
                 }else{
+                    //导出过程中发生错误
                     dispatch_async(dispatch_get_main_queue(), ^{
                         NSLog(@"导出失败");
-                        [self.noticeText setStringValue:@"导出失败"];
+                        [self.noticeText setStringValue:@"导出失败 :("];
                         showAlert(@"export error", @"export fail please check your key or your database");
                     });
                    
                     deleteDatabase();
                 }
             }else{
+                //如果路径或者key是错误的
                 dispatch_async(dispatch_get_main_queue(), ^{
                     showAlert(@"export error", @"export fail please check your key or your database");
                 });
                 deleteDatabase();
             }
             NSLog (@"End database copying at Time: %@",[NSDate date]);
-            sqlite3_close(convert_DB);
-            
-            
             
         }
         else {
             dispatch_async(dispatch_get_main_queue(), ^{
                 showAlert(@"export error", @"export fail please check your key or your database");
             });
-            sqlite3_close(convert_DB);
         }
+        
+        sqlite3_close(convert_DB);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self setUIStatus:YES];
+        });
 
     });
     
@@ -224,22 +257,19 @@
         
         if (tag == 0) {
             [self runDecodeWithDB:dbpath keyword:key];
-            
-//            runEncode(dbpath, key);
         }else{
-//            runDecode(dbpath, key);
             [self runEncodeWithDB:dbpath keyword:key];
         }
     }
-  
+    
+    [self setUIStatus:NO];
+
 }
 
 #pragma mark -
 #pragma mark - Common function to call NSAlert
 void showAlert(NSString *title,NSString *message){
     [[NSAlert alertWithMessageText:title defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"%@",message] runModal];
-    
-
 }
 
 
@@ -254,6 +284,35 @@ bool deleteDatabase(){
         return true;
     }else{
         return false;
+    }
+}
+
+#pragma mark -
+#pragma mark - set UI Status
+/**
+ *	@brief	设置界面的UI状态
+ *
+ *	@param 	isAnimation BOOL value
+ */
+- (void)setUIStatus:(BOOL)isAnimation
+{
+    
+   
+    if (isAnimation) {
+        [self.startButton setEnabled:YES];
+        [self.startButton setStringValue:@"go !"];
+        [self.DBKey setEnabled:YES];
+        [self.DBPathText setEnabled:YES];
+        [self.progressIndicator stopAnimation:self];
+        [self.progressIndicator setHidden:YES];
+    }else{
+        //开始动画的时候，将UI状态置为不可编辑
+        [self.startButton setEnabled:NO];
+        [self.startButton setStringValue:@"waiting..."];
+        [self.DBKey setEnabled:NO];
+        [self.DBPathText setEnabled:NO];
+        [self.progressIndicator setHidden:NO];
+        [self.progressIndicator startAnimation:self];
     }
 }
 

@@ -19,6 +19,8 @@
 @property (assign) IBOutlet NSMatrix *actionRadio;
 @property (nonatomic,strong) NSString *noticeMessage;
 @property (assign) __block IBOutlet NSTextField *noticeText;
+@property (assign) IBOutlet NSProgressIndicator *progressIndicator;
+@property (assign) IBOutlet NSButton *startButton;
 
 
 - (IBAction)convertDB:(id)sender;
@@ -37,5 +39,8 @@ bool deleteDatabase();
 
 //加密数据库
 - (void)runEncodeWithDB:(NSString *)path keyword:(NSString *)key;
+
+
+- (void)setUIStatus:(BOOL)isAnimation;
 
 @end

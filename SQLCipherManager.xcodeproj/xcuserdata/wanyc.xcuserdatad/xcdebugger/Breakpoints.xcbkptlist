@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SQLCipherManager/AppDelegate.m"
-         timestampString = "397128095.797319"
+         timestampString = "397362677.305356"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "193"
-         endingLineNumber = "193"
+         startingLineNumber = "226"
+         endingLineNumber = "226"
          landmarkName = "-convertDB:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,12 +21,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SQLCipherManager/AppDelegate.m"
-         timestampString = "397128095.797319"
+         timestampString = "397362677.305356"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "97"
-         endingLineNumber = "97"
-         landmarkName = "-runEncodeWithDB:keyword:"
+         startingLineNumber = "127"
+         endingLineNumber = "127"
+         landmarkName = "-runDecodeWithDB:keyword:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -34,12 +34,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SQLCipherManager/AppDelegate.m"
-         timestampString = "397126567.706675"
+         timestampString = "397362677.305356"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "31"
-         endingLineNumber = "31"
-         landmarkName = "-runDecodeWithDB:keyword:"
+         startingLineNumber = "35"
+         endingLineNumber = "35"
+         landmarkName = "-runEncodeWithDB:keyword:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
