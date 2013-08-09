@@ -25,7 +25,9 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-
+    if([[NSUserDefaults standardUserDefaults] objectForKey:@"dbkey"]){
+        [self.DBKey setStringValue:[[NSUserDefaults standardUserDefaults] objectForKey:@"dbkey"]];
+    }
 }
 
 //进行数据库加密

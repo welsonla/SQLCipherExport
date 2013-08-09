@@ -22,6 +22,7 @@
 @property (assign) IBOutlet NSProgressIndicator *progressIndicator;
 @property (assign) IBOutlet NSButton *startButton;
 
+@property (assign) IBOutlet NSButton *rememberCheckbox;
 
 - (IBAction)convertDB:(id)sender;
 
