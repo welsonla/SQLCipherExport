@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E59C12917B4E7FB00124089 /* SQLExcuteWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E59C12717B4E7FB00124089 /* SQLExcuteWindow.m */; };
+		0E59C12A17B4E7FB00124089 /* SQLExcuteWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E59C12817B4E7FB00124089 /* SQLExcuteWindow.xib */; };
 		0E7551A9178D321A004DF8FC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E7551A8178D3219004DF8FC /* Cocoa.framework */; };
 		0E7551B3178D321A004DF8FC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0E7551B1178D321A004DF8FC /* InfoPlist.strings */; };
 		0E7551B5178D321A004DF8FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E7551B4178D321A004DF8FC /* main.m */; };
@@ -62,7 +64,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0E7551A5178D3219004DF8FC /* SQLCipherManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SQLCipherManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E59C12617B4E7FB00124089 /* SQLExcuteWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLExcuteWindow.h; sourceTree = "<group>"; };
+		0E59C12717B4E7FB00124089 /* SQLExcuteWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLExcuteWindow.m; sourceTree = "<group>"; };
+		0E59C12817B4E7FB00124089 /* SQLExcuteWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SQLExcuteWindow.xib; sourceTree = "<group>"; };
+		0E7551A5178D3219004DF8FC /* SQLCipherTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SQLCipherTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E7551A8178D3219004DF8FC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		0E7551AB178D321A004DF8FC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		0E7551AC178D321A004DF8FC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -128,7 +133,7 @@
 		0E7551A6178D3219004DF8FC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0E7551A5178D3219004DF8FC /* SQLCipherManager.app */,
+				0E7551A5178D3219004DF8FC /* SQLCipherTools.app */,
 				0E7551C5178D321A004DF8FC /* SQLCipherManagerTests.octest */,
 			);
 			name = Products;
@@ -160,6 +165,9 @@
 				0E7551BA178D321A004DF8FC /* AppDelegate.h */,
 				0E7551BB178D321A004DF8FC /* AppDelegate.m */,
 				0E7551BD178D321A004DF8FC /* MainMenu.xib */,
+				0E59C12617B4E7FB00124089 /* SQLExcuteWindow.h */,
+				0E59C12717B4E7FB00124089 /* SQLExcuteWindow.m */,
+				0E59C12817B4E7FB00124089 /* SQLExcuteWindow.xib */,
 				0E7551AF178D321A004DF8FC /* Supporting Files */,
 			);
 			path = SQLCipherManager;
@@ -231,7 +239,7 @@
 			);
 			name = SQLCipherManager;
 			productName = SQLCipherManager;
-			productReference = 0E7551A5178D3219004DF8FC /* SQLCipherManager.app */;
+			productReference = 0E7551A5178D3219004DF8FC /* SQLCipherTools.app */;
 			productType = "com.apple.product-type.application";
 		};
 		0E7551C4178D321A004DF8FC /* SQLCipherManagerTests */ = {
@@ -316,6 +324,7 @@
 				0E7551B9178D321A004DF8FC /* Credits.rtf in Resources */,
 				0E7551BF178D321A004DF8FC /* MainMenu.xib in Resources */,
 				0E7BEA8B17979BDD00444DFB /* app.icns in Resources */,
+				0E59C12A17B4E7FB00124089 /* SQLExcuteWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +361,7 @@
 			files = (
 				0E7551B5178D321A004DF8FC /* main.m in Sources */,
 				0E7551BC178D321A004DF8FC /* AppDelegate.m in Sources */,
+				0E59C12917B4E7FB00124089 /* SQLExcuteWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,7 +495,7 @@
 				HEADER_SEARCH_PATHS = sqlcipher;
 				INFOPLIST_FILE = "SQLCipherManager/SQLCipherManager-Info.plist";
 				OTHER_CFLAGS = "-DSQLITE_HAS_CODEC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SQLCipherTools;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -499,7 +509,7 @@
 				HEADER_SEARCH_PATHS = sqlcipher;
 				INFOPLIST_FILE = "SQLCipherManager/SQLCipherManager-Info.plist";
 				OTHER_CFLAGS = "-DSQLITE_HAS_CODEC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SQLCipherTools;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
