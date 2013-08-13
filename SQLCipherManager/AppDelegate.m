@@ -134,8 +134,10 @@
         
         sqlite3 *convert_DB;
         
-        NSString *attachPath = [[NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES) objectAtIndex:0]
-                                stringByAppendingPathComponent:@"developer.db"];;
+        NSString *dbname = [NSString stringWithFormat:@"developer%.0f.db",[[NSDate date] timeIntervalSince1970]];
+        NSString *attachPath = [[NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES)
+                                 objectAtIndex:0]
+                                stringByAppendingPathComponent:dbname];
         
         
         if ([[NSFileManager defaultManager] fileExistsAtPath:attachPath]) {
