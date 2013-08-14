@@ -256,7 +256,7 @@
          * 0:解密
          * 1:加密
          */
-         NSInteger tag = self.actionRadio.selectedTag;
+        NSInteger tag = self.cryptSegment.selectedSegment;// self.actionRadio.selectedTag;
         
         
         if (tag == 0) {

@@ -23,6 +23,7 @@
 @property (assign) IBOutlet NSButton *startButton;
 
 @property (assign) IBOutlet NSButton *rememberCheckbox;
+@property (assign) IBOutlet NSSegmentedControl *cryptSegment;
 
 - (IBAction)convertDB:(id)sender;
 
