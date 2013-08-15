@@ -10,7 +10,7 @@
 1. Drag your database to the first input
 2. Input your key
 
-![scrennshot](http://ww2.sinaimg.cn/large/6e8de9dbjw1e6qvxrsmc9j20b60btjrq.jpg)
+![scrennshot](http://ww1.sinaimg.cn/large/6e8de9dbjw1e7n3eaa3qcj20b10bpq3a.jpg)
 
 #####When export success
 You can find a sqlite database named 'developer.db' on your Desktop
