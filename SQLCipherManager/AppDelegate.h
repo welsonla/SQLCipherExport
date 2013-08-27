@@ -9,7 +9,8 @@
 #import <Cocoa/Cocoa.h>
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>{
-    
+    IBOutlet NSMenu *statusMenu;
+    NSStatusItem *statusItem;
 }
 
 @property (assign) IBOutlet NSWindow *window;
@@ -47,5 +48,9 @@ bool deleteDatabase();
 
 
 - (void)setUIStatus:(BOOL)isAnimation;
+
+- (IBAction)awakeWindow:(id)sender;
+
+- (IBAction)showProjectWebsite:(id)sender;
 
 @end

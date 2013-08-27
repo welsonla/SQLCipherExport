@@ -25,6 +25,15 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    
+ 	statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
+	[statusItem setMenu:statusMenu];
+	[statusItem setTitle:@"SQL"];
+	[statusItem setHighlightMode:YES];
+
+    
+    
+    
     if([[NSUserDefaults standardUserDefaults] objectForKey:@"dbkey"]){
         [self.DBKey setStringValue:[[NSUserDefaults standardUserDefaults] objectForKey:@"dbkey"]];
         [self.rememberCheckbox setState:0];
@@ -33,10 +42,14 @@
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag{
     //当窗口被关闭时候，点击dock中的图标再次打开
+    [self awakeWindow:self];
+    return NO;
+}
+
+- (IBAction)awakeWindow:(id)sender{
     if (![self.window isVisible]) {
         [self.window makeKeyAndOrderFront:nil];
     }
-    return NO;
 }
 
 
@@ -255,6 +268,8 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+
+
 /**
  *	转换button点击事件
  *
@@ -301,6 +316,7 @@
     [self setUIStatus:NO];
 
 }
+
 
 #pragma mark -
 #pragma mark - Common function to call NSAlert
@@ -352,4 +368,8 @@ bool deleteDatabase(){
     }
 }
 
+- (IBAction)showProjectWebsite:(id)sender{
+    [[NSWorkspace sharedWorkspace] openURL:
+     [NSURL URLWithString:@"https://github.com/welsonla/SQLCipherExport"]];
+}
 @end
