@@ -31,6 +31,11 @@ if you could not using Xcode to build it,a release version is avalible on the 'r
 
 ##Update
 
+####1.4.1(2013.08.27)
+1. 修复点击dock图标窗口仍然无法呼出的bug
+2. 添加一个status menu
+3. 添加remember key功能，用于储存dbkey
+
 ####1.1.2
 1. 添加了 GCD
 2. 当转换进行中时，设置输入框为不可用
