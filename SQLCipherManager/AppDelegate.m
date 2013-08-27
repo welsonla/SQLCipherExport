@@ -320,4 +320,21 @@ bool deleteDatabase(){
     }
 }
 
+
+
+
+#pragma mark -
+#pragma mark - Dock click event
+- (void)applicationWillResignActive:(NSNotification *)notification{
+    NSLog(@"here");
+}
+
+
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag{
+    if (![self.window isVisible]) {
+        [self.window makeKeyAndOrderFront:nil];
+    }
+    NSLog(@"reopen");
+    return NO;
+}
 @end
