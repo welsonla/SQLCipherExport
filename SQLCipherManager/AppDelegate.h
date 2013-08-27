@@ -25,6 +25,9 @@
 @property (assign) IBOutlet NSButton *rememberCheckbox;
 @property (assign) IBOutlet NSSegmentedControl *cryptSegment;
 
+
+- (IBAction)rememberKey:(id)sender;
+
 - (IBAction)convertDB:(id)sender;
 
 //showTheAlert

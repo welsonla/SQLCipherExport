@@ -27,8 +27,19 @@
 {
     if([[NSUserDefaults standardUserDefaults] objectForKey:@"dbkey"]){
         [self.DBKey setStringValue:[[NSUserDefaults standardUserDefaults] objectForKey:@"dbkey"]];
+        [self.rememberCheckbox setState:0];
     }
 }
+
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag{
+    //当窗口被关闭时候，点击dock中的图标再次打开
+    if (![self.window isVisible]) {
+        [self.window makeKeyAndOrderFront:nil];
+    }
+    return NO;
+}
+
+
 
 //进行数据库加密
 - (void)runEncodeWithDB:(NSString *)path keyword:(NSString *)key{
@@ -226,11 +237,31 @@
    
 }
 
+/**
+ *	存储DBkey到UserDefault中
+ *
+ *	@param	sender	NSButton
+ */
+- (IBAction)rememberKey:(id)sender {
+    NSButton *button  = sender;
+    if(button.state && DBKey.stringValue.length>0){
+        NSString *stringOfDBKey = [self.DBKey stringValue];
+        [[NSUserDefaults standardUserDefaults] setObject:stringOfDBKey forKey:@"dbkey"];
+        
+    }else{
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"dbkey"];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 
+/**
+ *	转换button点击事件
+ *
+ *	@param	sender	NSButton
+ */
 - (IBAction)convertDB:(id)sender {
 
-    
-    
     if (DBPathText.stringValue.length==0) {
         showAlert(@"could not found the database", @"Drap your Sqlite to the first input");
         return ;
@@ -244,7 +275,8 @@
     NSString *dbpath = DBPathText.stringValue;
     NSString *key = DBKey.stringValue;
     
-    
+    //检查是否要存储key
+    [self rememberKey:self.rememberCheckbox];
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:dbpath]) {
         showAlert(@"notice", @"I could not found the sqlite at this path");
@@ -320,21 +352,4 @@ bool deleteDatabase(){
     }
 }
 
-
-
-
-#pragma mark -
-#pragma mark - Dock click event
-- (void)applicationWillResignActive:(NSNotification *)notification{
-    NSLog(@"here");
-}
-
-
-- (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag{
-    if (![self.window isVisible]) {
-        [self.window makeKeyAndOrderFront:nil];
-    }
-    NSLog(@"reopen");
-    return NO;
-}
 @end
