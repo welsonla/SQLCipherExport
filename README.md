@@ -27,7 +27,9 @@ You can find a sqlite database named 'developer.db' on your Desktop
 ##Release verion is avalible on the folder 'release'
 if you could not using Xcode to build it,a release version is avalible on the 'release' folder
 
-
+##Todo
+* live debug
+* rekey
 
 ##Update
 
