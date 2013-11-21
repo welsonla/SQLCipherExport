@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E12A6B4183DAE4900192C6B /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E12A6AC183DAE0800192C6B /* libcrypto.a */; };
 		0E12A6B5183DAE4900192C6B /* libsqlcipher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E12A6B3183DAE1700192C6B /* libsqlcipher.a */; };
+		0E12A6BC183DAFEB00192C6B /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E12A6BB183DAFEB00192C6B /* Utility.m */; };
 		0E59C12917B4E7FB00124089 /* SQLExcuteWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E59C12717B4E7FB00124089 /* SQLExcuteWindow.m */; };
 		0E59C12A17B4E7FB00124089 /* SQLExcuteWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E59C12817B4E7FB00124089 /* SQLExcuteWindow.xib */; };
 		0E7551A9178D321A004DF8FC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E7551A8178D3219004DF8FC /* Cocoa.framework */; };
@@ -66,6 +67,8 @@
 /* Begin PBXFileReference section */
 		0E12A6A7183DAE0800192C6B /* openssl.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openssl.xcodeproj; path = "openssl-xcode/openssl.xcodeproj"; sourceTree = "<group>"; };
 		0E12A6AD183DAE1700192C6B /* sqlcipher.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = sqlcipher.xcodeproj; path = sqlcipher/sqlcipher.xcodeproj; sourceTree = "<group>"; };
+		0E12A6BA183DAFEB00192C6B /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		0E12A6BB183DAFEB00192C6B /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 		0E59C12617B4E7FB00124089 /* SQLExcuteWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLExcuteWindow.h; sourceTree = "<group>"; };
 		0E59C12717B4E7FB00124089 /* SQLExcuteWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLExcuteWindow.m; sourceTree = "<group>"; };
 		0E59C12817B4E7FB00124089 /* SQLExcuteWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SQLExcuteWindow.xib; sourceTree = "<group>"; };
@@ -144,9 +147,8 @@
 		0E75519C178D3219004DF8FC = {
 			isa = PBXGroup;
 			children = (
-				0E129EA1183DADC300192C6B /* lib */,
 				0E7BEA8A17979BDD00444DFB /* app.icns */,
-				0EB01ECC178E9AC300752D12 /* libsqlite3.dylib */,
+				0E129EA1183DADC300192C6B /* lib */,
 				0E7551AE178D321A004DF8FC /* SQLCipherManager */,
 				0E7551CB178D321B004DF8FC /* SQLCipherManagerTests */,
 				0E7551A7178D3219004DF8FC /* Frameworks */,
@@ -166,6 +168,7 @@
 		0E7551A7178D3219004DF8FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0EB01ECC178E9AC300752D12 /* libsqlite3.dylib */,
 				0E7551A8178D3219004DF8FC /* Cocoa.framework */,
 				0E7551C6178D321A004DF8FC /* SenTestingKit.framework */,
 				0E7551AA178D321A004DF8FC /* Other Frameworks */,
@@ -193,6 +196,8 @@
 				0E59C12717B4E7FB00124089 /* SQLExcuteWindow.m */,
 				0E59C12817B4E7FB00124089 /* SQLExcuteWindow.xib */,
 				0E7551AF178D321A004DF8FC /* Supporting Files */,
+				0E12A6BA183DAFEB00192C6B /* Utility.h */,
+				0E12A6BB183DAFEB00192C6B /* Utility.m */,
 			);
 			path = SQLCipherManager;
 			sourceTree = "<group>";
@@ -367,6 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E12A6BC183DAFEB00192C6B /* Utility.m in Sources */,
 				0E7551B5178D321A004DF8FC /* main.m in Sources */,
 				0E7551BC178D321A004DF8FC /* AppDelegate.m in Sources */,
 				0E59C12917B4E7FB00124089 /* SQLExcuteWindow.m in Sources */,
