@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6655160E-B170-4F0E-A746-30BCDD4812EC</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SQLCipherManager</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>CAD8B9FC-7380-45C4-83E5-0D8BD478AC9F</key>
+		<string>https://github.com/sqlcipher/openssl-xcode.git</string>
+		<key>D3718B8F-6D4E-4695-97A3-4F48BEC884AE</key>
+		<string>ssh://github.com/welsonla/SQLCipherExport.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SQLCipherManager.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>CAD8B9FC-7380-45C4-83E5-0D8BD478AC9F</key>
+		<string>../../lib/openssl-xcode</string>
+		<key>D3718B8F-6D4E-4695-97A3-4F48BEC884AE</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/welsonla/SQLCipherExport.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D3718B8F-6D4E-4695-97A3-4F48BEC884AE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>CAD8B9FC-7380-45C4-83E5-0D8BD478AC9F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>openssl-xcode</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D3718B8F-6D4E-4695-97A3-4F48BEC884AE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SQLCipherExport</string>
+		</dict>
+	</array>
+</dict>
+</plist>
