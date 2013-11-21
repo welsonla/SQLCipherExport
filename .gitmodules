@@ -1,0 +1,6 @@
+[submodule "lib/sqlcipher"]
+	path = lib/sqlcipher
+	url = https://github.com/sqlcipher/sqlcipher.git
+[submodule "lib/openssl-xcode"]
+	path = lib/openssl-xcode
+	url = https://github.com/sqlcipher/openssl-xcode.git

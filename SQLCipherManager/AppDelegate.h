@@ -7,10 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "Utility.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>{
     IBOutlet NSMenu *statusMenu;
     NSStatusItem *statusItem;
+    NSString *new_db_name;
 }
 
 @property (assign) IBOutlet NSWindow *window;

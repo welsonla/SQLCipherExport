@@ -158,10 +158,10 @@
         
         sqlite3 *convert_DB;
         
-        NSString *dbname = [NSString stringWithFormat:@"developer%.0f.db",[[NSDate date] timeIntervalSince1970]];
+        new_db_name = [NSString stringWithFormat:@"DB%@.db",[Utility formatTime:[NSDate date]]];
         NSString *attachPath = [[NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES)
                                  objectAtIndex:0]
-                                stringByAppendingPathComponent:dbname];
+                                stringByAppendingPathComponent:new_db_name];
         
         
         if ([[NSFileManager defaultManager] fileExistsAtPath:attachPath]) {
@@ -209,7 +209,8 @@
                         dispatch_async(dispatch_get_main_queue(), ^{
                              [self.noticeText setStringValue:@"解密成功 :)"];
                              [self.progressIndicator setHidden:YES];
-                             showAlert(@"export success", @"the database was success export on ~/Desktop/developer.db");
+                            NSString *message = [NSString stringWithFormat:@"the database was success export on ~/Desktop/%@",new_db_name];
+                             showAlert(@"export success", message);
                         });
                        
                     }
