@@ -26,6 +26,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    
     NSApplication *thisApp = [NSApplication sharedApplication];
     [thisApp activateIgnoringOtherApps:YES];
     [self.window makeKeyAndOrderFront:thisApp];

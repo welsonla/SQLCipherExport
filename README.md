@@ -31,6 +31,11 @@ if you could not using Xcode to build it,a release version is avalible on the 'r
 
 ##Update
 
+####1.4.3(2013.12.13)
+1. 添加转换后open in finder
+2. 修复窗口不在最前的问题
+3. 提示使用中文
+
 ####1.4.1(2013.08.27)
 1. 修复点击dock图标窗口仍然无法呼出的bug
 2. 添加一个status menu
