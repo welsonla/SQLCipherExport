@@ -25,6 +25,10 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    NSApplication *thisApp = [NSApplication sharedApplication];
+    [thisApp activateIgnoringOtherApps:YES];
+    [self.window makeKeyAndOrderFront:thisApp];
+    
     
  	statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
 	[statusItem setMenu:statusMenu];
@@ -49,6 +53,7 @@
 - (IBAction)awakeWindow:(id)sender{
     if (![self.window isVisible]) {
         [self.window makeKeyAndOrderFront:nil];
+        [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
     }
 }
 
