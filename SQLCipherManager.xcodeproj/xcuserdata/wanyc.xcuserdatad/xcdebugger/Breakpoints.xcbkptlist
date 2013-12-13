@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SQLCipherManager/AppDelegate.m"
-         timestampString = "408609630.831163"
+         timestampString = "408614499.639692"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "257"
-         endingLineNumber = "257"
+         startingLineNumber = "274"
+         endingLineNumber = "274"
          landmarkName = "-runDecodeWithDB:keyword:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,24 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SQLCipherManager/AppDelegate.m"
-         timestampString = "408609630.831163"
+         timestampString = "408614499.639692"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "156"
-         endingLineNumber = "156"
-         landmarkName = "@implementation AppDelegate"
-         landmarkType = "3">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "SQLCipherManager/AppDelegate.m"
-         timestampString = "408609630.831163"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "64"
-         endingLineNumber = "64"
+         startingLineNumber = "172"
+         endingLineNumber = "172"
          landmarkName = "-runEncodeWithDB:keyword:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SQLCipherManager/AppDelegate.m"
-         timestampString = "408609637.657055"
+         timestampString = "408614499.639692"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "53"
-         endingLineNumber = "53"
+         startingLineNumber = "57"
+         endingLineNumber = "57"
          landmarkName = "-awakeWindow:"
          landmarkType = "5">
       </FileBreakpoint>

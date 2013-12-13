@@ -13,9 +13,10 @@
 
 @synthesize DBPathText;
 @synthesize DBKey;
-@synthesize actionRadio;
 @synthesize noticeMessage;
 @synthesize noticeText;
+@synthesize encryptPath;
+@synthesize normalPath;
 @synthesize progressIndicator;
 
 - (void)dealloc
@@ -29,11 +30,18 @@
     [thisApp activateIgnoringOtherApps:YES];
     [self.window makeKeyAndOrderFront:thisApp];
     
+    alert = [[NSAlert alloc] init];
+    [alert setDelegate:self];
+    [alert addButtonWithTitle:@"打开"];
+    [alert addButtonWithTitle:@"已阅"];
+    
     
  	statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
 	[statusItem setMenu:statusMenu];
 	[statusItem setTitle:@"SQL"];
 	[statusItem setHighlightMode:YES];
+    [statusItem setTarget:self];
+    [statusItem setAction:@selector(bringToFront)];
 
     
     
@@ -53,10 +61,17 @@
 - (IBAction)awakeWindow:(id)sender{
     if (![self.window isVisible]) {
         [self.window makeKeyAndOrderFront:nil];
+    }
+    [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
+}
+
+
+- (IBAction)bringToFront:(id)sender{
+    if (![self.window isVisible]) {
+        [self.window makeKeyAndOrderFront:nil];
         [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
     }
 }
-
 
 
 //进行数据库加密
@@ -67,15 +82,18 @@
         //使用原生的sqlite
         NSString *origin_DB_Path = path;
         
+       
+        
+        
         sqlite3 *convert_DB;
         
         NSString *attachPath = [[NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES) objectAtIndex:0]
                                 stringByAppendingPathComponent:@"encrypt.db"];;
-        
+         self.encryptPath = attachPath;
         
         if ([[NSFileManager defaultManager] fileExistsAtPath:attachPath]) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                showAlert(@"Notice", @"a database named 'developer.db' is already on the Desktop");
+                showAlert(@"提示", @"一个名为'encrypt.db'的数据库已经存在在桌面");
             });
             
             return;
@@ -119,7 +137,8 @@
                         dispatch_async(dispatch_get_main_queue(), ^{
                             NSLog(@"分离成功");
                             [self.noticeText setStringValue:@"加密成功 :)"];
-                            showAlert(@"Encrypt success", @"the database was success export on ~/Desktop/encrypt.db");
+                            [self showFinishAlert:@"加密成功"];
+//                            showAlert(@"Encrypt success", @"the database was success export on ~/Desktop/encrypt.db");
                         });
                     }
                     
@@ -133,13 +152,13 @@
                 }
             }else{
                 //数据库或者key不正确
-                showAlert(@"export error", @"export fail please check your key or your database");
+                showAlert(@"导出失败", @"导出失败，请检查你的key和数据库是否是加密库");
                 deleteDatabase();
             }
             NSLog (@"End database copying at Time: %@",[NSDate date]);
         }
         else {
-            showAlert(@"export error", @"export fail please check your key or your database");
+            showAlert(@"导出失败", @"导出失败，请检查你的key和数据库是否是加密库");
         }
         
         
@@ -161,6 +180,8 @@
         //使用原生的sqlite
         NSString *origin_DB_Path = path;
         
+        
+        
         sqlite3 *convert_DB;
         
         new_db_name = [NSString stringWithFormat:@"DB%@.db",[Utility formatTime:[NSDate date]]];
@@ -168,9 +189,10 @@
                                  objectAtIndex:0]
                                 stringByAppendingPathComponent:new_db_name];
         
+        self.normalPath = attachPath;
         
         if ([[NSFileManager defaultManager] fileExistsAtPath:attachPath]) {
-            showAlert(@"Notice", @"a database named 'developer.db' is already on the Desktop");
+            showAlert(@"提示", @"一个名为'developer.db'的数据库已经存在在桌面");
             return;
         }
         
@@ -214,8 +236,8 @@
                         dispatch_async(dispatch_get_main_queue(), ^{
                              [self.noticeText setStringValue:@"解密成功 :)"];
                              [self.progressIndicator setHidden:YES];
-                            NSString *message = [NSString stringWithFormat:@"the database was success export on ~/Desktop/%@",new_db_name];
-                             showAlert(@"export success", message);
+                             [self showFinishAlert:@"解密成功"];
+                           
                         });
                        
                     }
@@ -225,7 +247,7 @@
                     dispatch_async(dispatch_get_main_queue(), ^{
                         NSLog(@"导出失败");
                         [self.noticeText setStringValue:@"导出失败 :("];
-                        showAlert(@"export error", @"export fail please check your key or your database");
+                        showAlert(@"导出失败", @"导出失败，请检查你的key和数据库是否是加密库");
                     });
                    
                     deleteDatabase();
@@ -233,7 +255,7 @@
             }else{
                 //如果路径或者key是错误的
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    showAlert(@"export error", @"export fail please check your key or your database");
+                   showAlert(@"导出失败", @"导出失败，请检查你的key和数据库是否是加密库");
                 });
                 deleteDatabase();
             }
@@ -284,12 +306,12 @@
 - (IBAction)convertDB:(id)sender {
 
     if (DBPathText.stringValue.length==0) {
-        showAlert(@"could not found the database", @"Drap your Sqlite to the first input");
+        showAlert(@"提示", @"Drap your Sqlite to the first input");
         return ;
     }
     
     if (DBKey.stringValue.length==0) {
-        showAlert(@"the key was invalid", @"Please check your database key!");
+        showAlert(@"the key was invalid", @"key太短了");
         return;
     }
     
@@ -309,7 +331,7 @@
          * 0:解密
          * 1:加密
          */
-        NSInteger tag = self.cryptSegment.selectedSegment;// self.actionRadio.selectedTag;
+        NSInteger tag = self.cryptSegment.selectedSegment;
         
         
         if (tag == 0) {
@@ -328,6 +350,26 @@
 #pragma mark - Common function to call NSAlert
 void showAlert(NSString *title,NSString *message){
     [[NSAlert alertWithMessageText:title defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"%@",message] runModal];
+}
+
+- (void)showFinishAlert:(NSString *)message{
+    [alert setMessageText:message];
+    [alert beginSheetModalForWindow:self.window modalDelegate:self didEndSelector:@selector(didAlert:selectedIndex:withContent:) contextInfo:nil];
+}
+
+
+- (void)didAlert:(NSAlert *)alertView selectedIndex:(int)index withContent:(void *)content{
+    if (index==1000) {
+        if(self.cryptSegment.selectedSegment==0){
+             NSLog(@"normal:%@",normalPath);
+           [Utility openInFinder:self.normalPath];
+          
+        }else{
+            NSLog(@"encrypt:%@",encryptPath);
+           [Utility openInFinder:self.encryptPath];
+           
+        }
+    }
 }
 
 
@@ -374,8 +416,13 @@ bool deleteDatabase(){
     }
 }
 
+
+
 - (IBAction)showProjectWebsite:(id)sender{
     [[NSWorkspace sharedWorkspace] openURL:
      [NSURL URLWithString:@"https://github.com/welsonla/SQLCipherExport"]];
 }
+
+
+
 @end

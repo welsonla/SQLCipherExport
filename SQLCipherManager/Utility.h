@@ -12,4 +12,6 @@
 
 + (NSString *)formatTime:(NSDate *)date;
 
++ (void)openInFinder:(NSString *)filePath;
+
 @end

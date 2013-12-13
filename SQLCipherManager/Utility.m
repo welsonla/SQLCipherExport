@@ -16,4 +16,8 @@
     return [formater stringFromDate:date];
 }
 
++ (void)openInFinder:(NSString *)filePath{
+    [[NSWorkspace sharedWorkspace] selectFile:filePath inFileViewerRootedAtPath:@""];
+}
+
 @end

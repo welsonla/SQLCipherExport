@@ -2,9 +2,9 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1070</int>
-		<string key="IBDocument.SystemVersion">12E55</string>
+		<string key="IBDocument.SystemVersion">12F45</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
-		<string key="IBDocument.AppKitVersion">1187.39</string>
+		<string key="IBDocument.AppKitVersion">1187.40</string>
 		<string key="IBDocument.HIToolboxVersion">626.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -45,7 +45,7 @@
 			<object class="NSWindowTemplate" id="972006081">
 				<int key="NSWindowStyleMask">11</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{756, 410}, {400, 400}}</string>
+				<string key="NSWindowRect">{{756, 410}, {310, 360}}</string>
 				<int key="NSWTFlags">1954021376</int>
 				<string key="NSWindowTitle">SQLCipherManager</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -59,7 +59,7 @@
 						<object class="NSTextField" id="74833978">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{19, 266}, {345, 26}}</string>
+							<string key="NSFrame">{{19, 225}, {271, 26}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="294524603"/>
@@ -101,7 +101,7 @@
 						<object class="NSTextField" id="271648010">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{16, 300}, {241, 26}}</string>
+							<string key="NSFrame">{{16, 259}, {241, 26}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="74833978"/>
@@ -139,7 +139,7 @@
 						<object class="NSTextField" id="1011270869">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{19, 186}, {345, 26}}</string>
+							<string key="NSFrame">{{19, 145}, {271, 26}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="162281997"/>
@@ -161,7 +161,7 @@
 						<object class="NSTextField" id="294524603">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{19, 220}, {170, 23}}</string>
+							<string key="NSFrame">{{19, 179}, {170, 23}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="1011270869"/>
@@ -182,7 +182,7 @@
 						<object class="NSButton" id="830043694">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{248, 100}, {122, 32}}</string>
+							<string key="NSFrame">{{174, 17}, {122, 32}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -215,7 +215,7 @@
 						<object class="NSTextField" id="463116179">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{49, 145}, {151, 17}}</string>
+							<string key="NSFrame">{{49, 104}, {151, 17}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="664837421"/>
@@ -240,7 +240,7 @@
 						<object class="NSProgressIndicator" id="162281997">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">-2147483380</int>
-							<string key="NSFrame">{{19, 145}, {16, 16}}</string>
+							<string key="NSFrame">{{19, 104}, {16, 16}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="463116179"/>
@@ -251,7 +251,7 @@
 						<object class="NSButton" id="664837421">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{252, 140}, {113, 32}}</string>
+							<string key="NSFrame">{{178, 57}, {113, 32}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="830043694"/>
@@ -283,7 +283,7 @@
 						<object class="NSSegmentedControl" id="447511543">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{19, 357}, {271, 23}}</string>
+							<string key="NSFrame">{{19, 316}, {271, 23}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="271648010"/>
@@ -316,7 +316,7 @@
 							<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 						</object>
 					</array>
-					<string key="NSFrameSize">{400, 400}</string>
+					<string key="NSFrameSize">{310, 360}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="447511543"/>
@@ -545,12 +545,12 @@
 							<reference ref="447511543"/>
 							<reference ref="74833978"/>
 							<reference ref="271648010"/>
-							<reference ref="1011270869"/>
 							<reference ref="294524603"/>
-							<reference ref="830043694"/>
 							<reference ref="463116179"/>
 							<reference ref="162281997"/>
+							<reference ref="830043694"/>
 							<reference ref="664837421"/>
+							<reference ref="1011270869"/>
 						</array>
 						<reference key="parent" ref="972006081"/>
 					</object>
@@ -776,9 +776,7 @@
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="DBKey">NSTextField</string>
 						<string key="DBPathText">NSTextField</string>
-						<string key="actionRadio">NSMatrix</string>
 						<string key="cryptSegment">NSSegmentedControl</string>
-						<string key="noticeText">NSTextField</string>
 						<string key="progressIndicator">NSProgressIndicator</string>
 						<string key="rememberCheckbox">NSButton</string>
 						<string key="startButton">NSButton</string>
@@ -794,17 +792,9 @@
 							<string key="name">DBPathText</string>
 							<string key="candidateClassName">NSTextField</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="actionRadio">
-							<string key="name">actionRadio</string>
-							<string key="candidateClassName">NSMatrix</string>
-						</object>
 						<object class="IBToOneOutletInfo" key="cryptSegment">
 							<string key="name">cryptSegment</string>
 							<string key="candidateClassName">NSSegmentedControl</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="noticeText">
-							<string key="name">noticeText</string>
-							<string key="candidateClassName">NSTextField</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="progressIndicator">
 							<string key="name">progressIndicator</string>
