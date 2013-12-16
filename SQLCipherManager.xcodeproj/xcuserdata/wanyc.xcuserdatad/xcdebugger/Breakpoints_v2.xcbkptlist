@@ -17,6 +17,36 @@
             endingLineNumber = "258"
             landmarkName = "-runDecodeWithDB:keyword:"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__39-[AppDelegate runDecodeWithDB:keyword:]_block_invoke"
+                  moduleName = "SQLCipherTools"
+                  urlString = "file://localhost/Users/wanyc/Code/Mac/SQLCipherExport/SQLCipherManager/AppDelegate.m"
+                  timestampString = "408849633.392"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "258"
+                  endingLineNumber = "258"
+                  offsetFromSymbolStart = "1556">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__39-[AppDelegate runDecodeWithDB:keyword:]_block_invoke192"
+                  moduleName = "SQLCipherTools"
+                  urlString = "file://localhost/Users/wanyc/Code/Mac/SQLCipherExport/SQLCipherManager/AppDelegate.m"
+                  timestampString = "408849633.392473"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "259"
+                  endingLineNumber = "259"
+                  offsetFromSymbolStart = "30">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -63,8 +93,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "361"
             endingLineNumber = "361"
-            landmarkName = "-didAlert:selectedIndex:withContent:"
-            landmarkType = "5">
+            landmarkName = "@implementation AppDelegate"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
