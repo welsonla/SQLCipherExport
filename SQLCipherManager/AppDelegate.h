@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "Utility.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate,NSAlertDelegate>{
+@interface AppDelegate : NSObject <NSApplicationDelegate,NSAlertDelegate,NSTextFieldDelegate>{
     IBOutlet NSMenu *statusMenu;
     NSStatusItem *statusItem;
     NSString *new_db_name;

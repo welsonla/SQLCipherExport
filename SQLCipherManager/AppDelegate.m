@@ -388,6 +388,15 @@ bool deleteDatabase(){
     }
 }
 
+
+- (BOOL)writeSelectionToPasteboard:(NSPasteboard *)pboard type:(NSString *)type{
+    return YES;
+}
+
+- (BOOL)readSelectionFromPasteboard:(NSPasteboard *)pboard type:(NSString *)type{
+    return YES;
+}
+
 #pragma mark -
 #pragma mark - set UI Status
 /**
