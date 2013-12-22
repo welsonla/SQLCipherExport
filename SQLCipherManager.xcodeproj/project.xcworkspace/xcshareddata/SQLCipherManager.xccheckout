@@ -10,6 +10,8 @@
 	<string>SQLCipherManager</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>1755696B-6CCD-43D4-A339-BAABDE9DA5D9</key>
+		<string>ssh://github.com/benoitsan/countly-sdk-cocoa.git</string>
 		<key>CAD8B9FC-7380-45C4-83E5-0D8BD478AC9F</key>
 		<string>https://github.com/sqlcipher/openssl-xcode.git</string>
 		<key>D3718B8F-6D4E-4695-97A3-4F48BEC884AE</key>
@@ -19,19 +21,29 @@
 	<string>SQLCipherManager.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>1755696B-6CCD-43D4-A339-BAABDE9DA5D9</key>
+		<string>../../lib/countly-sdk-cocoa</string>
 		<key>CAD8B9FC-7380-45C4-83E5-0D8BD478AC9F</key>
 		<string>../../lib/openssl-xcode</string>
 		<key>D3718B8F-6D4E-4695-97A3-4F48BEC884AE</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/welsonla/SQLCipherExport.git</string>
+	<string>file:///Users/welsonla/Code/Mac/SQLCipherExport/SQLCipherManager.xcodeproj/project.xcworkspace/</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
 	<string>D3718B8F-6D4E-4695-97A3-4F48BEC884AE</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1755696B-6CCD-43D4-A339-BAABDE9DA5D9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>countly-sdk-cocoa</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

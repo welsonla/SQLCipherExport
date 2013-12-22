@@ -25,6 +25,16 @@
 		8BAC2ECC1866EA8E00C85A4C /* libsqlcipher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B2138531866DC0300BEB00D /* libsqlcipher.a */; };
 		8BAC2ED01866EDE600C85A4C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BAC2ECF1866EDE600C85A4C /* Security.framework */; };
 		8BAC2ED11866EDEE00C85A4C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E7551AD178D321A004DF8FC /* Foundation.framework */; };
+		8BAC2EDF1867038200C85A4C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BAC2EDE1867038200C85A4C /* CFNetwork.framework */; };
+		8BAC2EE11867038A00C85A4C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BAC2EE01867038A00C85A4C /* CoreLocation.framework */; };
+		8BAC2EE31867039100C85A4C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BAC2EE21867039100C85A4C /* libz.dylib */; };
+		8BAC2EE51867039800C85A4C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BAC2EE41867039800C85A4C /* QuartzCore.framework */; };
+		8BAC2EE7186703A600C85A4C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BAC2EE6186703A600C85A4C /* SystemConfiguration.framework */; };
+		8BAC2F0318672A7B00C85A4C /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E7551AB178D321A004DF8FC /* AppKit.framework */; };
+		8BAC2F0918672B7500C85A4C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8BAC2F0518672B7500C85A4C /* .gitignore */; };
+		8BAC2F0A18672B7500C85A4C /* Countly.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAC2F0718672B7500C85A4C /* Countly.m */; };
+		8BAC2F0B18672B7500C85A4C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8BAC2F0818672B7500C85A4C /* README.md */; };
+		8BAC2F1218672FB800C85A4C /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BAC2F1118672FB800C85A4C /* CoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +68,18 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		8BAC2EDA1867033500C85A4C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0E12A6BA183DAFEB00192C6B /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
 		0E12A6BB183DAFEB00192C6B /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
@@ -88,6 +110,20 @@
 		8B21384D1866DC0300BEB00D /* sqlcipher.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = sqlcipher.xcodeproj; path = sqlcipher/sqlcipher.xcodeproj; sourceTree = "<group>"; };
 		8BAC2ECF1866EDE600C85A4C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		8BAC2ED21866EDF900C85A4C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8BAC2EDC1867037700C85A4C /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
+		8BAC2EDE1867038200C85A4C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		8BAC2EE01867038A00C85A4C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8BAC2EE21867039100C85A4C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		8BAC2EE41867039800C85A4C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8BAC2EE6186703A600C85A4C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8BAC2F0118672A6C00C85A4C /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
+		8BAC2F0518672B7500C85A4C /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		8BAC2F0618672B7500C85A4C /* Countly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Countly.h; sourceTree = "<group>"; };
+		8BAC2F0718672B7500C85A4C /* Countly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Countly.m; sourceTree = "<group>"; };
+		8BAC2F0818672B7500C85A4C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		8BAC2F0D18672F6200C85A4C /* libSystem.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSystem.dylib; path = usr/lib/libSystem.dylib; sourceTree = SDKROOT; };
+		8BAC2F0F18672F8300C85A4C /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
+		8BAC2F1118672FB800C85A4C /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +131,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BAC2F1218672FB800C85A4C /* CoreServices.framework in Frameworks */,
+				8BAC2EDF1867038200C85A4C /* CFNetwork.framework in Frameworks */,
+				8BAC2F0318672A7B00C85A4C /* AppKit.framework in Frameworks */,
+				8BAC2EE7186703A600C85A4C /* SystemConfiguration.framework in Frameworks */,
+				8BAC2EE51867039800C85A4C /* QuartzCore.framework in Frameworks */,
+				8BAC2EE31867039100C85A4C /* libz.dylib in Frameworks */,
+				8BAC2EE11867038A00C85A4C /* CoreLocation.framework in Frameworks */,
 				8BAC2ED11866EDEE00C85A4C /* Foundation.framework in Frameworks */,
 				8BAC2ED01866EDE600C85A4C /* Security.framework in Frameworks */,
 				8BAC2ECC1866EA8E00C85A4C /* libsqlcipher.a in Frameworks */,
@@ -118,6 +161,7 @@
 		0E129EA1183DADC300192C6B /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				8BAC2F0418672B7500C85A4C /* countly-sdk-cocoa */,
 				8B21384D1866DC0300BEB00D /* sqlcipher.xcodeproj */,
 			);
 			path = lib;
@@ -147,6 +191,16 @@
 		0E7551A7178D3219004DF8FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8BAC2F1118672FB800C85A4C /* CoreServices.framework */,
+				8BAC2F0F18672F8300C85A4C /* libcrypto.dylib */,
+				8BAC2F0D18672F6200C85A4C /* libSystem.dylib */,
+				8BAC2F0118672A6C00C85A4C /* libcommonCrypto.dylib */,
+				8BAC2EE6186703A600C85A4C /* SystemConfiguration.framework */,
+				8BAC2EE41867039800C85A4C /* QuartzCore.framework */,
+				8BAC2EE21867039100C85A4C /* libz.dylib */,
+				8BAC2EE01867038A00C85A4C /* CoreLocation.framework */,
+				8BAC2EDE1867038200C85A4C /* CFNetwork.framework */,
+				8BAC2EDC1867037700C85A4C /* ApplicationServices.framework */,
 				8BAC2ED21866EDF900C85A4C /* CoreGraphics.framework */,
 				8BAC2ECF1866EDE600C85A4C /* Security.framework */,
 				0EB01ECC178E9AC300752D12 /* libsqlite3.dylib */,
@@ -222,6 +276,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		8BAC2F0418672B7500C85A4C /* countly-sdk-cocoa */ = {
+			isa = PBXGroup;
+			children = (
+				8BAC2F0518672B7500C85A4C /* .gitignore */,
+				8BAC2F0618672B7500C85A4C /* Countly.h */,
+				8BAC2F0718672B7500C85A4C /* Countly.m */,
+				8BAC2F0818672B7500C85A4C /* README.md */,
+			);
+			path = "countly-sdk-cocoa";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -232,6 +297,7 @@
 				0E7551A1178D3219004DF8FC /* Sources */,
 				0E7551A2178D3219004DF8FC /* Frameworks */,
 				0E7551A3178D3219004DF8FC /* Resources */,
+				8BAC2EDA1867033500C85A4C /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -314,7 +380,9 @@
 				0E7551B3178D321A004DF8FC /* InfoPlist.strings in Resources */,
 				0E7551B9178D321A004DF8FC /* Credits.rtf in Resources */,
 				0E7551BF178D321A004DF8FC /* MainMenu.xib in Resources */,
+				8BAC2F0B18672B7500C85A4C /* README.md in Resources */,
 				0E7BEA8B17979BDD00444DFB /* app.icns in Resources */,
+				8BAC2F0918672B7500C85A4C /* .gitignore in Resources */,
 				0E59C12A17B4E7FB00124089 /* SQLExcuteWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,6 +418,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BAC2F0A18672B7500C85A4C /* Countly.m in Sources */,
 				0E12A6BC183DAFEB00192C6B /* Utility.m in Sources */,
 				0E7551B5178D321A004DF8FC /* main.m in Sources */,
 				0E7551BC178D321A004DF8FC /* AppDelegate.m in Sources */,
@@ -485,12 +554,20 @@
 		0E7551D7178D321B004DF8FC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/welsonla/Code/Mac/SQLCipherExport/lib,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SQLCipherManager/SQLCipherManager-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/lib/sqlcipher";
 				INFOPLIST_FILE = "SQLCipherManager/SQLCipherManager-Info.plist";
-				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)\"";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
@@ -505,12 +582,20 @@
 		0E7551D8178D321B004DF8FC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/welsonla/Code/Mac/SQLCipherExport/lib,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SQLCipherManager/SQLCipherManager-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/lib/sqlcipher";
 				INFOPLIST_FILE = "SQLCipherManager/SQLCipherManager-Info.plist";
-				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)\"";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
@@ -526,6 +611,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SQLCipherManager.app/Contents/MacOS/SQLCipherManager";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -547,6 +633,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SQLCipherManager.app/Contents/MacOS/SQLCipherManager";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

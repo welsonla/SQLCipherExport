@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <sqlite3.h>
+#import "Countly.h"
 
 @implementation AppDelegate
 
@@ -21,11 +22,16 @@
 
 - (void)dealloc
 {
-    [super dealloc];
+//    [super dealloc];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    [[Countly sharedInstance] startWithAttributes:
+    @{
+        CountlyAttributesAPIKey: @"f7ba3f4f36fe8d0546557983a7e366d237f6faf2",
+        CountlyAttributesHost  : @"http://cloud.count.ly"
+    }];
     
     NSApplication *thisApp = [NSApplication sharedApplication];
     [thisApp activateIgnoringOtherApps:YES];
@@ -37,7 +43,7 @@
     [alert addButtonWithTitle:@"已阅"];
     
     
- 	statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
+ 	statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
 	[statusItem setMenu:statusMenu];
 	[statusItem setTitle:@"SQL"];
 	[statusItem setHighlightMode:YES];
